@@ -23,7 +23,7 @@ function index(req, res) {
         <meta charset="UTF-8">
     </head>
     <body>`);
-    res.write('<h1>Index, ' + metodo + '!</h1>');
+    res.write('<h1>Index!</h1>');
     res.write('<form action="media" method="post">');
     res.write('<label>');
     res.write('<span>Nome</span>');
