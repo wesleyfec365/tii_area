@@ -1,15 +1,15 @@
 {
-  "name": "tii_academico",
+  "name": "publicitario",
   "version": "1.0.0",
-  "description": "Projeto acadêmico",
+  "description": "Projeto desWebII",
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js"
   },
   "keywords": [
-    "Acadêmico"
+    "DesWebII"
   ],
-  "author": "Renato Lenz Costalima",
+  "author": "Francisco Lourival Garrido Neto",
   "license": "Apache-2.0",
   "dependencies": {
     "nodemon": "^3.0.1"
