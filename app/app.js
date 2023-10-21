@@ -7,8 +7,8 @@ const server = http.createServer(function (req, res) {
 
     if (url == '/index') {
         index(req, res);
-    } else if (url == '/calcular-estande') {
-        calcularEstande(req, res);
+    } else if (url == '/calcular-area') {
+        calcularArea(req, res);
     } else if (url == '/autor') {
         autor(req, res);
     } else {
@@ -24,23 +24,23 @@ function index(req, res) {
         <meta charset="UTF-8">
     </head>
     <body>`);
-    res.write('<h1>Problema: Cálculo da Área de um Estande em forma de Heptadecágono</h1>');
-    res.write('<p><strong>Descrição do problema:</strong></p>');
-    res.write('<p>Calcule a área de um estande em forma de heptadecágono. Se a área estiver dentro do intervalo de 60 a 80 metros quadrados, é um estande médio. Caso contrário, é um estande que não segue o padrão.</p>');
-    res.write('<form action="calcular-estande" method="post">');
+    res.write('<h1>Projeto: Cálculo da Área de uma Área em forma de Hexatriacontágono</h1>');
+    res.write('<p><strong>Descrição do projeto:</strong></p>');
+    res.write('<p>Determine a área de uma área em forma de hexatriacontágono. Se a área estiver dentro do intervalo de 180 a 220 metros quadrados, é uma área média. Caso contrário, é uma área que não segue o padrão.</p>');
+    res.write('<form action="calcular-area" method="post">');
     res.write('<label>');
-    res.write('<span>Lado do Heptadecágono</span>');
+    res.write('<span>Lado do Hexatriacontágono</span>');
     res.write('<input name="lado">');
     res.write('</label>');
     res.write('<button>Calcular</button>');
     res.write('</form>');
-    res.write('<footer>Desenvolvido por Lucas Diniz</footer>');
+    res.write('<footer>Desenvolvido por Wesley Feitosa</footer>');
     res.write(`</body>
     </html>`);
     res.end();
 }
 
-function calcularEstande(req, res) {
+function calcularArea(req, res) {
     let metodo = req.method;
     res.writeHead(200, { 'Content-Type': 'text/html' });
     res.write(`<!DOCTYPE html>
@@ -59,32 +59,31 @@ function calcularEstande(req, res) {
         req.on('end', () => {
             const dadosDoFormulario = parse(corpoTexto);
             let lado = parseFloat(dadosDoFormulario.lado);
-            let area = 17 / 4 * Math.pow(lado, 2) * 1 / Math.tan(Math.PI / 17);
+            let area = 34 * Math.pow(lado, 2) * 1 / Math.tan(Math.PI / 34);
 
-            res.write('<h1>Explicação da conta</h1>');
-            res.write('<p>A área de um heptadecágono regular pode ser calculada usando a fórmula:</p>');
-            res.write('<p><strong>Área = (17/4) * lado^2 * (1 / tan(π/17))</strong></p>');
-            res.write('<p>- <strong>lado</strong>: Comprimento de um lado do heptadecágono.</p>');
+            res.write('<h1>Explicação do cálculo</h1>');
+            res.write('<p>A área de um hexatriacontágono regular pode ser calculada usando a fórmula:</p>');
+            res.write('<p><strong>Área = (34 * lado^2) / (4 * tan(π/34))</strong></p>');
+            res.write('<p>- <strong>lado</strong>: Comprimento do lado do hexatriacontágono.</p>');
             res.write('<p>- <strong>π</strong>: Número Pi (aproximadamente 3.14159).</p>');
-            res.write('<p>- <strong>tan(π/17)</strong>: Tangente do ângulo π/17, que é metade do ângulo central de um heptadecágono regular.</p>');
-            res.write('<p>- <strong>(17/4)</strong>: Constante de conversão.</p>');
-            res.write('<p>A fórmula calcula a área multiplicando o comprimento do lado pelo seu quadrado e pela tangente do ângulo π/17. O resultado é a área do heptadecágono.</p>');
+            res.write('<p>- <strong>tan(π/34)</strong>: Tangente do ângulo π/34, que é metade do ângulo central de um hexatriacontágono regular.</p>');
+            res.write('<p>A fórmula calcula a área multiplicando o quadrado do comprimento do lado por 34 e dividindo pelo valor da tangente do ângulo π/34. O resultado é a área do hexatriacontágono.</p>');
             res.write('<h1>Resposta:</h1>');
-            res.write(`<p>Lado do heptadecágono inserido: ${lado}</p>`);
-            res.write(`<p>Área do estande: ${area.toFixed(2)} metros quadrados</p>`);
-            if (area >= 60 && area <= 80) {
-                res.write('<p>É um estande médio.</p>');
+            res.write(`<p>Lado do hexatriacontágono inserido: ${lado}</p>`);
+            res.write(`<p>Área da área: ${area.toFixed(2)} metros quadrados</p>`);
+            if (area >= 180 && area <= 220) {
+                res.write('<p>É uma área média.</p>');
             } else {
-                res.write('<p>É um estande que não segue o padrão.</p>');
+                res.write('<p>É uma área que não segue o padrão.</p>');
             }
-            res.write('<footer>Desenvolvido por Lucas Diniz</footer>');
+            res.write('<footer>Desenvolvido por Wesley Feitosa</footer>');
             res.write(`</body>
             </html>`);
             res.end();
         });
     } else {
         res.write('<h1>Método não permitido</h1>');
-        res.write('<footer>Desenvolvido por Lucas Diniz</footer>');
+        res.write('<footer>Desenvolvido por Wesley Feitosa</footer>');
         res.write(`</body>
         </html>`);
         res.end();
@@ -100,23 +99,21 @@ function autor(req, res) {
     </head>
     <body>`);
     res.write('<h1>Autor</h1>');
-    res.write('<p>Nome: Lucas de França Diniz</p>');
+    res.write('<p>Nome: Wesley de Sousa Feitosa</p>');
     res.write('<h2>Formações Acadêmicas</h2>');
     res.write('<ul>');
-    res.write('<li>Análise e desenvolvimento de sistemas</li>');
-    res.write('<li>Instituição: Universidade Estácio De Sá</li>');
-    res.write('<li>Técnico em Informática para Internet</li>');
-    res.write('<li>Instituição: Instituto Federal do Ceará (IFCE)</li>');
-    res.write('<li>Ano: 2023</li>');
+    res.write('<li>Curso: Tecnico em Redes de Computadores</li>');
+    res.write('<li>Instituição: E.E.E.P Icaro de Sousa Moreira</li>');
+    res.write('<li>Ano: 2014</li>');
     res.write('</ul>');
     res.write('<h2>Experiências Profissionais</h2>');
     res.write('<ul>');
-    res.write('<li>Função: 3º Sgt</li>');
-    res.write('<li>Empresa: Exército Brasileiro</li>');
-    res.write('<li>Ano início: 2016</li>');
+    res.write('<li>Função: CB</li>');
+    res.write('<li>Empresa: Exercito Brasileiro</li>');
+    res.write('<li>Ano início: 2018</li>');
     res.write('</ul>');
     res.write('</body>');
-    res.write('<footer>Desenvolvido por Lucas Diniz</footer>');
+    res.write('<footer>Desenvolvido por Wesley Feitosa</footer>');
     res.write('</html>');
     res.end();
 }
@@ -131,7 +128,7 @@ function naoEncontrado(req, res) {
     <body>`);
     res.write('<h1>Não encontrado!</h1>');
     res.write('</body>');
-    res.write('<footer>Desenvolvido por Lucas Diniz</footer>');
+    res.write('<footer>Desenvolvido por Wesley Feitosa</footer>');
     res.write('</html>');
     res.end();
 }
